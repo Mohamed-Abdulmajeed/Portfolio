@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark" style="height: auto; min-height: 100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Abdelmajeed Sayed | Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link id="heading-font-link"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link id="body-font-link"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/imgProfile.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['var(--font-heading-name)', 'sans-serif'],
+                        body: ['var(--font-body-name)', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0066FF',
+                        secondary: '#0A1930',
+                        accent: '#00AEEF',
+                    },
+                    spacing: {
+                        base: 'var(--space-base)',
+                    },
+                    borderRadius: {
+                        small: 'var(--radius-small)',
+                        large: 'var(--radius-large)',
+                    },
+                    boxShadow: {
+                        custom: 'var(--shadow-custom)',
+                        'custom-hover': 'var(--shadow-custom-hover)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="font-body bg-[#F8FAFC] dark:bg-[#0B0F19] text-slate-600 dark:text-slate-400 antialiased transition-colors duration-300"
+    style="height: auto; min-height: 100%;">
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" style="width: 0%;"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 glass-panel bg-white/70 dark:bg-[#0B0F19]/70 border-b border-slate-200 dark:border-slate-800"
+        id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2 group" onclick="window.scrollTo(0,0); return false;">
+                    <div
+                        class="w-10 h-10 rounded-small bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-heading font-bold text-xl shadow-custom group-hover:shadow-custom-hover transition-all">
+                        M
+                    </div>
+                    <span class="font-heading font-bold text-xl text-slate-900 dark:text-white">Mohamed<span
+                            class="text-primary">.</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="#about"
+                        class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">About</a>
+                    <a href="#experience"
+                        class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">Experience</a>
+                    <a href="#training"
+                        class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">Training</a>
+                    <a href="#education"
+                        class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">Education</a>
+                    <a href="#projects"
+                        class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">Projects</a>
+                    <a href="#skills"
+                        class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">Skills</a>
+                    <a href="#certificates"
+                        class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">Certificates</a>
+                    <a href="#contact"
+                        class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">Contact</a>
+
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle"
+                        class="p-2 rounded-small bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700">
+                        <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+                        <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center gap-4">
+                    <button id="theme-toggle-mobile"
+                        class="p-2 rounded-small bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                        <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+                        <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+                    </button>
+                    <button id="mobile-menu-btn" aria-controls="mobile-menu" aria-expanded="false"
+                        class="text-slate-600 dark:text-slate-400">
+                        <i data-lucide="menu" class="w-6 h-6 mobile-menu-open-icon"></i>
+                        <i data-lucide="x" class="w-6 h-6 mobile-menu-close-icon hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-white dark:bg-[#0B0F19] border-b border-slate-200 dark:border-slate-800 px-6 py-4 space-y-4 shadow-custom">
+            <a href="#about" class="block text-sm font-medium text-slate-600 dark:text-slate-400">About</a>
+            <a href="#experience" class="block text-sm font-medium text-slate-600 dark:text-slate-400">Experience</a>
+            <a href="#training" class="block text-sm font-medium text-slate-600 dark:text-slate-400">Training</a>
+            <a href="#projects" class="block text-sm font-medium text-slate-600 dark:text-slate-400">Projects</a>
+            <a href="#skills" class="block text-sm font-medium text-slate-600 dark:text-slate-400">Skills</a>
+            <a href="#contact" class="block text-sm font-medium text-slate-600 dark:text-slate-400">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Effects -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none">
+        </div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px] pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Text Content -->
+                <div class="order-2 lg:order-1">
+
+
+                    <h1
+                        class="font-heading text-2xl lg:text-4xl font-bold text-slate-900 dark:text-white leading-tight mb-5">
+                        Hi, I'm <br>
+                        <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Mohamed
+                            Abdelmajeed Sayed</span>
+                    </h1>
+
+                    <div class="h-12 mb-6">
+                        <h2
+                            class="font-heading text-1xl lg:text-2xl text-slate-700 dark:text-slate-300 typing-container">
+                            Full Stack Web .NET & Angular Developer
+                        </h2>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-4 mb-12">
+                        <a href="#projects"
+                            class="px-8 py-4 rounded-small bg-primary hover:bg-blue-700 text-white font-medium transition-all shadow-[0_0_20px_rgba(0,102,255,0.3)] hover:shadow-[0_0_30px_rgba(0,102,255,0.5)] hover:-translate-y-1 flex items-center gap-2">
+                            View Projects <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="assets/Mohamed_Abdelmajeed_CV.pdf" target="_blank" rel="noopener noreferrer"
+                            class="px-8 py-4 rounded-small bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white font-medium hover:-translate-y-1 transition-all flex items-center gap-2 shadow-custom hover:shadow-custom-hover">
+                            <i data-lucide="download" class="w-4 h-4"></i>
+                            Download CV
+                        </a>
+                    </div>
+
+                    <!-- Social Links & Location -->
+                    <div class="flex items-center gap-6 pt-8 border-t border-slate-200 dark:border-slate-800">
+                        <div class="flex items-center gap-2 text-sm font-medium">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-primary"></i> Cairo, Egypt
+                        </div>
+                        <div class="w-px h-6 bg-slate-200 dark:bg-slate-800"></div>
+                        <div class="flex items-center gap-4">
+                            <a href="https://wa.me/201118726275" target="_blank"
+                                class="w-12 h-12 rounded-full flex items-center justify-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-green-500 hover:border-green-500 hover:shadow-[0_0_20px_rgba(72,187,120,0.3)] hover:-translate-y-1 transition-all duration-300">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/mohammed-abdelmajeed" target="_blank"
+                                class="w-12 h-12 rounded-full flex items-center justify-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-blue-500 hover:border-blue-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:-translate-y-1 transition-all duration-300"
+                                title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/Mohamed-Abdulmajeed" target="_blank"
+                                class="w-12 h-12 rounded-full flex items-center justify-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:border-slate-900 dark:hover:border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-1 transition-all duration-300"
+                                title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://youtube.com/@mohamedabdulmajeed2777?si=Ei4BPbHL2eASvvEl" target="_blank"
+                                class="w-12 h-12 rounded-full flex items-center justify-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-red-600 hover:border-red-600 hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] hover:-translate-y-1 transition-all duration-300"
+                                title="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="mailto:m7abdelmajeed@gmail.com?subject=Contact%20Me&body=Hello"
+                                class="w-12 h-12 rounded-full flex items-center justify-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-red-500 hover:border-red-500 hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] hover:-translate-y-1 transition-all duration-300"
+                                title="Email">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image/Visual -->
+                <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+                    <div class="relative w-72 h-72 lg:w-96 lg:h-96">
+                        <div
+                            class="absolute inset-0 rounded-full border border-primary/20 animate-[spin_10s_linear_infinite]">
+                        </div>
+                        <div
+                            class="absolute inset-4 rounded-full border border-accent/20 animate-[spin_15s_linear_infinite_reverse]">
+                        </div>
+
+                        <div
+                            class="absolute inset-8 rounded-full overflow-hidden bg-white dark:bg-slate-900 p-2 shadow-custom">
+                            <img src="assets/imgProfile.png" alt="Mohamed Abdelmajeed Sayed"
+                                class="w-full h-full object-cover rounded-full hover:grayscale-0 transition-all duration-500">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div
+                class="bg-white dark:bg-slate-900 rounded-large p-8 lg:p-12 shadow-custom hover:shadow-custom-hover transition-all duration-500 border border-slate-200 dark:border-slate-800">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                    <div class="md:col-span-4 flex justify-center">
+                        <div
+                            class="w-32 h-32 rounded-large bg-blue-50 dark:bg-primary/10 flex items-center justify-center border border-blue-100 dark:border-primary/20">
+                            <i data-lucide="terminal" class="w-16 h-16 text-primary"></i>
+                        </div>
+                    </div>
+                    <div class="md:col-span-8">
+                        <h2 class="font-heading text-3xl font-bold text-slate-900 dark:text-white mb-6">About Me</h2>
+                        <p class="text-lg leading-relaxed mb-6 text-slate-600 dark:text-slate-400">
+                            Full Stack .NET Developer with strong experience in ASP.NET Core, Web API, Angular, and SQL
+                            Server. Proven
+                            ability to build scalable, high-quality web applications and RESTful APIs. Able to integrate
+                            front-end and backend components efficiently, securely, and at scale. Passionate about clean
+                            architecture,problem-solving, and
+                            delivering impactful solutions.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span
+                                class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-700 dark:text-slate-300">
+                                ASP.NET Core</span>
+                            <span
+                                class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-700 dark:text-slate-300">
+                                Angular</span>
+                            <span
+                                class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-700 dark:text-slate-300">
+                                Clean Architecture</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience"
+        class="py-20 relative bg-slate-100/50 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl font-bold text-slate-900 dark:text-white mb-4">Work Experience</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 space-y-8">
+                <!-- Timeline Item -->
+                <div class="relative">
+                    <div
+                        class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-white dark:bg-[#0B0F19] border-4 border-primary">
+                    </div>
+                    <div
+                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large p-4 shadow-custom hover:shadow-custom-hover hover:-translate-y-1 transition-all duration-300">
+                        <span class="text-primary text-sm font-bold tracking-wider uppercase mb-2 block">May 2025 –
+                            Present</span>
+                        <h3 class="font-heading text-2xl font-bold text-slate-900 dark:text-white mb-1">Freelance Full
+                            Stack Web Developer</h3>
+                        <p class="text-slate-500 dark:text-slate-400 font-medium mb-6">Mostaql</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+                                <span class="text-slate-600 dark:text-slate-400">Built a role-based invoice management
+                                    system for a US maintenance company serving all managers.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+                                <span class="text-slate-600 dark:text-slate-400">Built a government training platform
+                                    for a Saudi organization managing all employees.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+                                <span class="text-slate-600 dark:text-slate-400">Built a POS system for retail stores,
+                                    restaurants, and cafés managing sales, shifts, and operations.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+                                <span class="text-slate-600 dark:text-slate-400">Built a desktop system for an Egyptian
+                                    home appliances company managing full reporting.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+                                <span class="text-slate-600 dark:text-slate-400">Built a custom web application for a
+                                    Saudi contracting company to efficiently manage operations.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+                                <span class="text-slate-600 dark:text-slate-400">Built an invoicing and sales system for
+                                    an Egyptian packaging company managing stock.</span>
+                            </li>
+                        </ul>
+                        <a href="#projects"
+                            class="inline-flex items-center gap-2 px-6 py-3 rounded-small bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white font-medium transition-colors">
+                            View Project <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internships / Training Section -->
+    <section id="training" class="py-24 relative">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl font-bold text-slate-900 dark:text-white mb-4">Internships & Training
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large p-8 lg:p-10 shadow-custom hover:shadow-custom-hover transition-all duration-300 relative overflow-hidden group">
+                <div
+                    class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-bl-full -z-10 group-hover:scale-110 transition-transform duration-700">
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center gap-6 mb-8">
+                    <div
+                        class="w-24 h-24 rounded-large bg-slate-50 dark:bg-white p-3 flex items-center justify-center shrink-0 border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <img src="assets/iti.png" alt="ITI Logo" class="w-full h-full object-cover rounded-small">
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-2xl font-bold text-slate-900 dark:text-white mb-1">Information
+                            Technology Institute (ITI)</h3>
+                        <p class="text-lg font-medium text-slate-700 dark:text-slate-300 mb-2">Full Stack Web &
+                            Generative AI Using .NET</p>
+                        <span
+                            class="inline-block px-3 py-1 rounded-full bg-blue-50 dark:bg-primary/10 text-primary dark:text-blue-400 text-sm font-medium">July
+                            2025 – Dec 2025</span>
+                    </div>
+                </div>
+
+                <!-- Tech Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
+                    <div
+                        class="flex flex-col items-center justify-center p-4 rounded-small bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-blue-500 hover:shadow-md transition-all">
+                        <i data-lucide="box" class="w-8 h-8 text-blue-600 dark:text-blue-400 mb-2"></i>
+                        <span class="text-sm font-medium text-slate-700 dark:text-slate-300">.NET Core</span>
+                    </div>
+                    <div
+                        class="flex flex-col items-center justify-center p-4 rounded-small bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-red-500 hover:shadow-md transition-all">
+                        <i data-lucide="hexagon" class="w-8 h-8 text-red-600 dark:text-red-500 mb-2"></i>
+                        <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Angular</span>
+                    </div>
+                    <div
+                        class="flex flex-col items-center justify-center p-4 rounded-small bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-cyan-500 hover:shadow-md transition-all">
+                        <i data-lucide="database" class="w-8 h-8 text-cyan-600 dark:text-cyan-500 mb-2"></i>
+                        <span class="text-sm font-medium text-slate-700 dark:text-slate-300">SQL Server</span>
+                    </div>
+                    <div
+                        class="flex flex-col items-center justify-center p-4 rounded-small bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-purple-500 hover:shadow-md transition-all">
+                        <i data-lucide="bot" class="w-8 h-8 text-purple-600 dark:text-purple-500 mb-2"></i>
+                        <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Gen AI</span>
+                    </div>
+                </div>
+
+                <!-- Training Projects -->
+                <h4 class="font-heading text-lg font-bold text-slate-900 dark:text-white mb-4">Key Training Projects
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div
+                        class="flex items-start gap-4 p-4 rounded-small bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 transition-colors">
+                        <div
+                            class="p-2 rounded-small bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 shrink-0">
+                            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-900 dark:text-white text-sm mb-1">NutriGuide - Graduation
+                                Project</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Health and fitness app with
+                                intermittent fasting, meal plans, workouts, and calorie tracking
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 p-4 rounded-small bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 transition-colors">
+                        <div
+                            class="p-2 rounded-small bg-cyan-100 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 shrink-0">
+                            <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-900 dark:text-white text-sm mb-1">CineVue - Movie App</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">A movie discovery Angular web app with
+                                API integration, modern UI, and i18n support</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 p-4 rounded-small bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 transition-colors">
+                        <div
+                            class="p-2 rounded-small bg-green-100 dark:bg-green-500/20 text-green-600 dark:text-green-400 shrink-0">
+                            <i data-lucide="message-square" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-900 dark:text-white text-sm mb-1">Digital Notes Manager</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Desktop application to manage secure
+                                personal notes with CRUD operations and database integration.
+
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 p-4 rounded-small bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 transition-colors">
+                        <div
+                            class="p-2 rounded-small bg-purple-100 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 shrink-0">
+                            <i data-lucide="check-square" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-900 dark:text-white text-sm mb-1">Examination System</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">A comprehensive system for managing
+                                examinations, including question creation, scheduling, and result analysis.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 p-4 rounded-small bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 transition-colors">
+                        <div
+                            class="p-2 rounded-small bg-orange-100 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 shrink-0">
+                            <i data-lucide="file-text" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-900 dark:text-white text-sm mb-1">Easy Shopping</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">E-commerce platform with product
+                                management and payment integration</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education"
+        class="py-24 relative bg-slate-100/50 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl font-bold text-slate-900 dark:text-white mb-4">Education</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover transition-all duration-300">
+                <div class="h-48 w-full relative">
+                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                        alt="University" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                    <div class="absolute bottom-6 left-8">
+                        <h3 class="font-heading text-2xl font-bold text-white mb-1">Faculty of Computers and Information
+                            Technology</h3>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                        <div>
+                            <p class="text-xl font-bold text-slate-900 dark:text-white">Bachelor of Computer Science</p>
+                            <p class="text-slate-500 dark:text-slate-400">2019 - 2023</p>
+                        </div>
+                        <div
+                            class="w-12 h-12 rounded-full bg-blue-50 dark:bg-primary/10 flex items-center justify-center text-primary">
+                            <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+
+                    <div
+                        class="p-4 rounded-small bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+                        <p class="text-sm text-slate-500 dark:text-slate-400 uppercase tracking-wider font-bold mb-2">
+                            Graduation Project</p>
+                        <p class="font-heading text-lg font-bold text-slate-900 dark:text-white mb-2">Disease Prediction
+                            System</p>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">A comprehensive system built across Web,
+                            Mobile, and Desktop platforms to predict diseases based on patient symptoms and medical
+                            history using machine learning algorithms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl font-bold text-slate-900 dark:text-white mb-4">Featured Projects</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Freelance Projects -->
+            <h3 class="font-heading text-2xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
+                <i data-lucide="briefcase" class="text-primary"></i> Freelance Projects
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <!-- Project Card -->
+                <div
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover hover:-translate-y-2 transition-all duration-500 group">
+
+                    <!-- Image -->
+                    <div class="relative h-60 overflow-hidden bg-slate-100 dark:bg-slate-800">
+                        <img src="assets/AMWS.png" alt="Integrated Management System"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+
+                        <div
+                            class="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors duration-300">
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-6">
+                        <h4 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-2">
+                            Full Stack Web Maintenance Management Platform
+                        </h4>
+
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">
+                            Developed a comprehensive enterprise management system for a U.S. company to centralize work
+                            orders,
+                            financial operations, payroll, and employee management, connecting technicians, accountants,
+                            managers,
+                            and administrators in a unified workflow.
+                        </p>
+
+                        <!-- Tech -->
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">.NET
+                                Core</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">Angular</span>
+                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">SQL
+                                Server</span>
+                        </div>
+
+                        <!-- Button -->
+                        <div class="flex items-center gap-4">
+                            <a href="https://amwss.com" target="_blank"
+                                class="flex-1 text-center px-4 py-2 rounded-small bg-primary hover:bg-blue-700 text-white text-sm font-medium transition-colors">
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover hover:-translate-y-2 transition-all duration-500 group">
+
+                    <div class="relative h-60 overflow-hidden">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/aUKLKSrCnlo"
+                            title="Project Demo Video" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <div class="p-6">
+                        <h4 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-2">
+                            إدارة مطعم وكافية
+                            + كاشير (POS System - Desktop)
+
+                        </h4>
+
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">
+                            Developed a professional POS (Cashier & Restaurant Management) system using C# and SQL
+                            Server to streamline sales, invoicing, inventory, customers, and shift operations for
+                            restaurants and cafés.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">C# -
+                                .NET Core</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">WinForms</span>
+                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">SQL
+                                Server</span>
+                        </div>
+
+                        <a href="https://youtu.be/aUKLKSrCnlo?si=WN79iUivfvAMhiYt" target="_blank"
+                            class="block text-center px-4 py-2 rounded-small bg-primary hover:bg-blue-700 text-white text-sm font-medium transition-colors">
+                            Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover hover:-translate-y-2 transition-all duration-500 group">
+
+                    <!-- Video -->
+                    <div class="relative h-60 overflow-hidden bg-black">
+
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/gxMey5RBETU"
+                            title="Construction Project Video" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-6">
+
+                        <!-- Title -->
+                        <h4 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-2">
+                            Construction Company Management System
+                        </h4>
+
+                        <!-- Description -->
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">
+                            Developed a full-featured architectural construction company management system designed to
+                            showcase projects and achievements through a modern, responsive website with a dedicated
+                            admin dashboard.
+                        </p>
+
+                        <!-- Tech Stack -->
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">HTML5</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">CSS3</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">JavaScript</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">Tailwind
+                                CSS</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">Firebase</span>
+                        </div>
+
+                        <!-- Live Demo -->
+                        <a href="https://contracting-company-app.vercel.app/" target="_blank"
+                            class="block text-center px-4 py-2 rounded-small bg-primary hover:bg-blue-700 text-white text-sm font-medium transition-colors">
+                            Live Demo
+                        </a>
+
+                    </div>
+                </div>
+                <!-- project card 4 -->
+                <!-- Project Card -->
+                <div
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover hover:-translate-y-2 transition-all duration-500 group">
+
+                    <!-- Video -->
+                    <div class="relative h-60 overflow-hidden bg-black">
+
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/hTFLDv1xZYA"
+                            title="Clothing Store Project" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-6">
+
+                        <!-- Title -->
+                        <h4 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-2">
+                            E-Commerce Clothing Store Platform
+                        </h4>
+
+                        <!-- Description -->
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">
+                            Developed a modern e-commerce platform for selling clothing items, featuring a seamless
+                            shopping experience with product management, wishlist functionality, and a responsive UI
+                            optimized for all screen sizes.
+                        </p>
+
+                        <!-- Tech Stack -->
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">HTML5</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">CSS3</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">Tailwind
+                                CSS</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">JavaScript</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">Angular</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">Firebase</span>
+                        </div>
+
+                        <!-- Button -->
+                        <a href="https://clothing-store-m.vercel.app/" target="_blank"
+                            class="block text-center px-4 py-2 rounded-small bg-primary hover:bg-blue-700 text-white text-sm font-medium transition-colors">
+                            Live Demo
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Training Projects -->
+            <h3 class="font-heading text-2xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
+                <i data-lucide="graduation-cap" class="text-primary"></i> Training Projects
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project Card 1 -->
+                <div
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover hover:-translate-y-2 transition-all duration-500 group">
+
+                    <!-- Video -->
+                    <div class="relative h-60 overflow-hidden bg-black">
+
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/YmGqTsYlxek"
+                            title="NutriGuide Project" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-6">
+
+                        <!-- Title -->
+                        <h4 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-2">
+                            NutriGuide – AI Health & Fitness Platform
+                        </h4>
+
+                        <!-- Description -->
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">
+                            Health and fitness app with intermittent fasting, meal plans, workouts, and calorie
+                            tracking.
+                        </p>
+
+                        <!-- Tech Stack -->
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">ASP.NET
+                                Web API</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">Angular</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">Generative
+                                AI</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">SignalR</span>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="flex items-center gap-3">
+
+                            <a href="https://nutri-guide-olive.vercel.app/login" target="_blank"
+                                class="flex-1 text-center px-4 py-2 rounded-small bg-primary hover:bg-blue-700 text-white text-sm font-medium transition-colors">
+                                Live Demo
+                            </a>
+
+
+                            <a href="https://github.com/Mohamed-Abdulmajeed/NutriGuide" target="_blank"
+                                class="flex-1 text-center px-4 py-2 rounded-small bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-sm font-medium transition-colors flex items-center justify-center gap-2">
+                                <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover hover:-translate-y-2 transition-all duration-500 group">
+
+                    <!-- YouTube Video -->
+                    <div class="relative h-60 overflow-hidden bg-black">
+
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/JV22L2WOxLc"
+                            title="Movie App Project Demo" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-6">
+
+                        <!-- Title -->
+                        <h4 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-2">
+                            Movie Discovery Web App (Angular)
+                        </h4>
+
+                        <!-- Description -->
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">
+                            A movie discovery Angular web app with API integration, modern UI, and i18n support.
+                        </p>
+
+                        <!-- Tech Stack -->
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">RESTful
+                                API</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">Angular</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">Firebase</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">Tailwind
+                                CSS</span>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="flex items-center gap-3">
+
+                            <a href="https://beshoywageh.github.io/movie-app/home" target="_blank"
+                                class="flex-1 text-center px-4 py-2 rounded-small bg-primary hover:bg-blue-700 text-white text-sm font-medium transition-colors">
+                                Live Demo
+                            </a>
+
+
+                            <a href="https://github.com/Mohamed-Abdulmajeed/MovieApp" target="_blank"
+                                class="flex-1 text-center px-4 py-2 rounded-small bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-sm font-medium transition-colors flex items-center justify-center gap-2">
+                                <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover hover:-translate-y-2 transition-all duration-500 group">
+
+                    <!-- YouTube Video -->
+                    <div class="relative h-60 overflow-hidden bg-black">
+
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/MXe-DJ2iGBU"
+                            title="Easy Shopping E-Commerce Platform Demo" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-6">
+
+                        <!-- Title -->
+                        <h4 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-2">
+                            Easy Shopping E-Commerce Platform
+                        </h4>
+
+                        <!-- Description -->
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">
+                            A responsive e-commerce website for product listing, shopping cart management, and
+                            Firebase-powered data handling, delivering a smooth and modern online shopping experience.
+                        </p>
+
+                        <!-- Tech Stack -->
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">HTML5</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">Tailwind
+                                CSS</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">JavaScript</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">Firebase</span>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="flex items-center gap-3">
+
+                            <a href="https://app-easy-shopping.vercel.app/" target="_blank"
+                                class="flex-1 text-center px-4 py-2 rounded-small bg-primary hover:bg-blue-700 text-white text-sm font-medium transition-colors">
+                                Live Demo
+                            </a>
+
+
+                            <a href="https://github.com/Mohamed-Abdulmajeed/App-Easy-Shopping" target="_blank"
+                                class="flex-1 text-center px-4 py-2 rounded-small bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-sm font-medium transition-colors flex items-center justify-center gap-2">
+                                <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 4 -->
+                <div
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover hover:-translate-y-2 transition-all duration-500 group">
+
+                    <!-- YouTube Video -->
+                    <div class="relative h-60 overflow-hidden bg-black">
+
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/Nf4Jihdi4xw"
+                            title="Restaurant & Cafe Management System Demo" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-6">
+
+                        <!-- Title -->
+                        <h4 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-2">
+                            Restaurant & Cafe Management System
+                        </h4>
+
+                        <!-- Description -->
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">
+                            A comprehensive restaurant and cafe management system featuring menu presentation, order
+                            processing, customer engagement, and a responsive user experience designed for modern food
+                            businesses.
+                        </p>
+
+                        <!-- Tech Stack -->
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">HTML5</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">CSS3</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">JavaScript</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">Tailwind
+                                CSS</span>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="flex items-center gap-3">
+
+                            <a href="https://resturant-cafe-app.vercel.app/" target="_blank"
+                                class="flex-1 text-center px-4 py-2 rounded-small bg-primary hover:bg-blue-700 text-white text-sm font-medium transition-colors">
+                                Live Demo
+                            </a>
+
+
+                            <a href="https://github.com/Mohamed-Abdulmajeed/Resturant" target="_blank"
+                                class="flex-1 text-center px-4 py-2 rounded-small bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-sm font-medium transition-colors flex items-center justify-center gap-2">
+                                <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 5 -->
+                <div
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover hover:-translate-y-2 transition-all duration-500 group">
+
+                    <!-- YouTube Video -->
+                    <div class="relative h-60 overflow-hidden bg-black">
+
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/ncR3rqrA7n0"
+                            title="Car Showroom Project Demo" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-6">
+
+                        <!-- Title -->
+                        <h4 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-2">
+                            Car Showroom Management System
+                        </h4>
+
+                        <!-- Description -->
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">
+                            A modern car showroom application with inventory management, vehicle listings, and sales
+                            tracking, designed to provide a seamless browsing experience and efficient showroom
+                            management.
+                        </p>
+
+                        <!-- Tech Stack -->
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">HTML5</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">CSS3</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">JavaScript</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">Tailwind
+                                CSS</span>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="flex items-center gap-3">
+
+                            <a href="https://car-show-room-app.vercel.app/" target="_blank"
+                                class="flex-1 text-center px-4 py-2 rounded-small bg-primary hover:bg-blue-700 text-white text-sm font-medium transition-colors">
+                                Live Demo
+                            </a>
+
+
+                            <a href="https://github.com/Mohamed-Abdulmajeed/Car-Showroom" target="_blank"
+                                class="flex-1 text-center px-4 py-2 rounded-small bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-sm font-medium transition-colors flex items-center justify-center gap-2">
+                                <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 6 -->
+                <div
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover hover:-translate-y-2 transition-all duration-500 group">
+
+                    <!-- YouTube Video -->
+                    <div class="relative h-60 overflow-hidden bg-black">
+
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/NjK3EKCxZqA"
+                            title="Supermarket Management System Demo" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-6">
+
+                        <!-- Title -->
+                        <h4 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-2">
+                            Supermarket Management System
+                        </h4>
+
+                        <!-- Description -->
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">
+                            A modern supermarket application with inventory management, product catalog browsing,
+                            shopping cart functionality, and sales tracking, providing a smooth and efficient online
+                            shopping experience.
+                        </p>
+
+                        <!-- Tech Stack -->
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">HTML5</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">CSS3</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">JavaScript</span>
+                            <span
+                                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium">Bootstrap</span>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="flex items-center gap-3">
+
+                            <a href="https://supermarket-online-shop.vercel.app/" target="_blank"
+                                class="flex-1 text-center px-4 py-2 rounded-small bg-primary hover:bg-blue-700 text-white text-sm font-medium transition-colors">
+                                Live Demo
+                            </a>
+
+
+                            <a href="https://github.com/Mohamed-Abdulmajeed/Supermarket" target="_blank"
+                                class="flex-1 text-center px-4 py-2 rounded-small bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-sm font-medium transition-colors flex items-center justify-center gap-2">
+                                <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills"
+        class="py-24 relative bg-slate-100/50 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl font-bold text-slate-900 dark:text-white mb-4">Technical Skills</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Programming Languages -->
+                <div
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large p-8 shadow-custom hover:shadow-custom-hover hover:-translate-y-1 transition-all duration-300">
+                    <div
+                        class="w-12 h-12 rounded-small bg-blue-50 dark:bg-primary/10 flex items-center justify-center text-primary mb-6">
+                        <i data-lucide="code-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-6">Programming Languages
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <div
+                            class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">C#</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">JavaScript</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">TypeScript</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">HTML5 / CSS3</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">C++ / Java /
+                                Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frameworks & Tools -->
+                <div
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large p-8 shadow-custom hover:shadow-custom-hover hover:-translate-y-1 transition-all duration-300">
+                    <div
+                        class="w-12 h-12 rounded-small bg-red-50 dark:bg-red-500/10 flex items-center justify-center text-red-600 dark:text-red-400 mb-6">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-6">Frameworks & Tools
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <div
+                            class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <i data-lucide="box" class="w-4 h-4 text-slate-500"></i>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">ASP.NET Core</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <i data-lucide="hexagon" class="w-4 h-4 text-red-500"></i>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Angular</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <i data-lucide="wind" class="w-4 h-4 text-cyan-500"></i>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Tailwind CSS</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <i data-lucide="database" class="w-4 h-4 text-green-500"></i>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Entity Framework</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large p-8 shadow-custom hover:shadow-custom-hover hover:-translate-y-1 transition-all duration-300">
+                    <div
+                        class="w-12 h-12 rounded-small bg-cyan-50 dark:bg-cyan-500/10 flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-6">
+                        <i data-lucide="database" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-6">Databases</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <div
+                            class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">SQL Server</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">MongoDB</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <span class="w-2 h-2 rounded-full bg-orange-400"></span>
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Concepts -->
+                <div
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large p-8 shadow-custom hover:shadow-custom-hover hover:-translate-y-1 transition-all duration-300">
+                    <div
+                        class="w-12 h-12 rounded-small bg-purple-50 dark:bg-purple-500/10 flex items-center justify-center text-purple-600 dark:text-purple-400 mb-6">
+                        <i data-lucide="lightbulb" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-6">Concepts</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span
+                            class="px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-700 dark:text-slate-300">RESTful
+                            APIs</span>
+                        <span
+                            class="px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-700 dark:text-slate-300">Git
+                            / GitHub</span>
+                        <span
+                            class="px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-700 dark:text-slate-300">SOLID
+                            Principles</span>
+                        <span
+                            class="px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-700 dark:text-slate-300">Design
+                            Patterns</span>
+                        <span
+                            class="px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-700 dark:text-slate-300">Agile
+                            / Scrum</span>
+                        <span
+                            class="px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-700 dark:text-slate-300">Clean
+                            Architecture</span>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large p-8 shadow-custom hover:shadow-custom-hover hover:-translate-y-1 transition-all duration-300 lg:col-span-2">
+                    <div
+                        class="w-12 h-12 rounded-small bg-green-50 dark:bg-green-500/10 flex items-center justify-center text-green-600 dark:text-green-400 mb-6">
+                        <i data-lucide="users" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-6">Soft Skills</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <div
+                            class="flex items-center gap-3 px-5 py-3 rounded-small bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <i data-lucide="puzzle" class="w-5 h-5 text-slate-500"></i>
+                            <span class="font-medium text-slate-700 dark:text-slate-300">Problem Solving</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 px-5 py-3 rounded-small bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <i data-lucide="message-square" class="w-5 h-5 text-slate-500"></i>
+                            <span class="font-medium text-slate-700 dark:text-slate-300">Communication</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 px-5 py-3 rounded-small bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <i data-lucide="users" class="w-5 h-5 text-slate-500"></i>
+                            <span class="font-medium text-slate-700 dark:text-slate-300">Teamwork</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 px-5 py-3 rounded-small bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <i data-lucide="clock" class="w-5 h-5 text-slate-500"></i>
+                            <span class="font-medium text-slate-700 dark:text-slate-300">Time Management</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl font-bold text-slate-900 dark:text-white mb-4">
+                    Certificates
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- Certificate 1 -->
+                <a href="assets/cerdotNetTrack.jpg" target="_blank"
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover hover:-translate-y-2 transition-all duration-500 group block">
+                    <div class="h-48 overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
+                        <img src="assets/cerdotNetTrack.jpg" alt="Certificate"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i data-lucide="maximize-2" class="w-8 h-8 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-heading text-lg font-bold text-slate-900 dark:text-white mb-1">
+                            Intensive Training .NET
+                        </h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">
+                            Information Technology Institute (ITI)
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Certificate 2 -->
+                <a href="assets/cerAI.jpg" target="_blank"
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover hover:-translate-y-2 transition-all duration-500 group block">
+                    <div class="h-48 overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
+                        <img src="assets/cerAI.jpg" alt="Certificate"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i data-lucide="maximize-2" class="w-8 h-8 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-heading text-lg font-bold text-slate-900 dark:text-white mb-1">
+                            Summer Training AI
+                        </h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">
+                            Information Technology Institute (ITI)
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Certificate 3 -->
+                <a href="assets/cerFlutter.jpg" target="_blank"
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover hover:-translate-y-2 transition-all duration-500 group block">
+                    <div class="h-48 overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
+                        <img src="assets/cerFlutter.jpg" alt="Certificate"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i data-lucide="maximize-2" class="w-8 h-8 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-heading text-lg font-bold text-slate-900 dark:text-white mb-1">
+                            Summer Training Flutter
+                        </h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">
+                            Information Technology Institute (ITI)
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Certificate 4 -->
+                <a href="assets/cerPHP MySQL.png" target="_blank"
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover hover:-translate-y-2 transition-all duration-500 group block">
+                    <div class="h-48 overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
+                        <img src="assets/cerPHP MySQL.png" alt="Certificate"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i data-lucide="maximize-2" class="w-8 h-8 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-heading text-lg font-bold text-slate-900 dark:text-white mb-1">
+                            PHP & MySQL Certificate
+                        </h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">
+                            Mahara Tech
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Certificate 5 -->
+                <a href="assets/cerPython.jpg" target="_blank"
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover hover:-translate-y-2 transition-all duration-500 group block">
+                    <div class="h-48 overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
+                        <img src="assets/cerPython.jpg" alt="Certificate"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i data-lucide="maximize-2" class="w-8 h-8 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-heading text-lg font-bold text-slate-900 dark:text-white mb-1">
+                            Summer Training Python
+                        </h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">
+                            Information Technology Institute (ITI)
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Certificate 6 -->
+                <a href="assets/cer1Wordpress.png" target="_blank"
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover hover:-translate-y-2 transition-all duration-500 group block">
+                    <div class="h-48 overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
+                        <img src="assets/cer1Wordpress.png" alt="Certificate"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i data-lucide="maximize-2" class="w-8 h-8 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-heading text-lg font-bold text-slate-900 dark:text-white mb-1">
+                            WordPress Certificate
+                        </h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">
+                            Coursera
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Certificate 7 -->
+                <a href="assets/cer2Wordpress.png" target="_blank"
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover hover:-translate-y-2 transition-all duration-500 group block">
+                    <div class="h-48 overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
+                        <img src="assets/cer2Wordpress.png" alt="Certificate"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i data-lucide="maximize-2" class="w-8 h-8 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-heading text-lg font-bold text-slate-900 dark:text-white mb-1">
+                            Building Full Website Certificate
+                        </h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">
+                            Coursera
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Certificate 8 -->
+                <a href="assets/cerDatabase Fundamentals.png" target="_blank"
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large overflow-hidden shadow-custom hover:shadow-custom-hover hover:-translate-y-2 transition-all duration-500 group block">
+                    <div class="h-48 overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
+                        <img src="assets/cerDatabase Fundamentals.png" alt="Certificate"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i data-lucide="maximize-2" class="w-8 h-8 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-heading text-lg font-bold text-slate-900 dark:text-white mb-1">
+                            Database Fundamentals
+                        </h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">
+                            Mahara Tech
+                        </p>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact"
+        class="py-24 relative bg-slate-100/50 dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl font-bold text-slate-900 dark:text-white mb-4">Get In Touch</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="font-heading text-2xl font-bold text-slate-900 dark:text-white mb-6">
+                        Let's talk about your project
+                    </h3>
+
+                    <p class="text-slate-600 dark:text-slate-400 mb-8">
+                        Feel free to reach out for collaborations, freelance projects, or just a friendly chat.
+                        I'm always open to discussing new opportunities.
+                    </p>
+
+                    <div class="space-y-5">
+
+                        <!-- Email -->
+                        <a href="mailto:m7abdelmajeed@gmail.com"
+                            class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300 group">
+
+                            <div
+                                class="w-12 h-12 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-primary shadow-sm">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+
+                            <div>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">
+                                    Email
+                                </p>
+                                <p class="text-slate-900 dark:text-white font-medium group-hover:text-primary">
+                                    m7abdelmajeed@gmail.com
+                                </p>
+                            </div>
+                        </a>
+
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/201118726275" target="_blank"
+                            class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300 group">
+
+                            <div
+                                class="w-12 h-12 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-green-500 shadow-sm">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+
+                            <div>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">
+                                    Phone / WhatsApp
+                                </p>
+                                <p class="text-slate-900 dark:text-white font-medium group-hover:text-green-500">
+                                    +20 111 872 6275
+                                </p>
+                            </div>
+                        </a>
+
+                        <!-- Location -->
+                        <div class="flex items-center gap-4 p-3">
+                            <div
+                                class="w-12 h-12 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-primary shadow-sm">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+
+                            <div>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">
+                                    Location
+                                </p>
+                                <p class="text-slate-900 dark:text-white font-medium">
+                                    Cairo, Egypt
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- GitHub -->
+                        <a href="https://github.com/Mohamed-Abdulmajeed" target="_blank"
+                            class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300 group">
+
+                            <div
+                                class="w-12 h-12 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-900 dark:text-white shadow-sm">
+                                <i class="fa-brands fa-github text-xl"></i>
+                            </div>
+
+                            <div>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">
+                                    GitHub
+                                </p>
+                                <p class="text-slate-900 dark:text-white font-medium">
+                                    Mohamed-Abdulmajeed
+                                </p>
+                            </div>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/mohammed-abdelmajeed" target="_blank"
+                            class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300 group">
+
+                            <div
+                                class="w-12 h-12 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-blue-600 shadow-sm">
+                                <i class="fa-brands fa-linkedin text-xl"></i>
+                            </div>
+
+                            <div>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">
+                                    LinkedIn
+                                </p>
+                                <p class="text-slate-900 dark:text-white font-medium">
+                                    Mohammed Abdelmajeed
+                                </p>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-large p-8 shadow-custom">
+
+                    <form id="contact-form" class="space-y-6">
+
+                        <!-- Name + Phone -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="contact-name"
+                                    class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                                    Full Name
+                                </label>
+                                <input id="contact-name" name="name" type="text"
+                                    class="w-full px-4 py-3 rounded-small bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-slate-900 dark:text-white"
+                                    placeholder="Your Name" required>
+                            </div>
+
+                            <div>
+                                <label for="contact-phone"
+                                    class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                                    Phone (Optional)
+                                </label>
+                                <input id="contact-phone" name="phone" type="tel"
+                                    class="w-full px-4 py-3 rounded-small bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-slate-900 dark:text-white"
+                                    placeholder="+20 11 18726275">
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div>
+                            <label for="contact-email"
+                                class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                                Email
+                            </label>
+                            <input id="contact-email" name="email" type="email"
+                                class="w-full px-4 py-3 rounded-small bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-slate-900 dark:text-white"
+                                placeholder="your@email.com" required>
+                        </div>
+
+                        <!-- Message -->
+                        <div>
+                            <label for="contact-message"
+                                class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                                Message
+                            </label>
+                            <textarea id="contact-message" name="message" rows="4"
+                                class="w-full px-4 py-3 rounded-small bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-slate-900 dark:text-white resize-none"
+                                placeholder="Tell me about your project..." required></textarea>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4 pt-2">
+
+                            <button type="submit"
+                                class="flex-1 px-6 py-3 rounded-small bg-primary hover:bg-blue-700 text-white font-medium transition-all shadow-[0_0_15px_rgba(0,102,255,0.3)] hover:shadow-[0_0_25px_rgba(0,102,255,0.5)] flex items-center justify-center gap-2">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                                Send Message
+                            </button>
+
+                            <a href="https://wa.me/201118726275" target="_blank"
+                                class="flex-1 px-6 py-3 rounded-small bg-green-500 hover:bg-green-600 text-white font-medium transition-all shadow-[0_0_15px_rgba(34,197,94,0.3)] hover:shadow-[0_0_25px_rgba(34,197,94,0.5)] flex items-center justify-center gap-2">
+                                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                WhatsApp
+                            </a>
+
+                        </div>
+
+                        <div id="contact-feedback" class="text-sm mt-2 text-slate-600 dark:text-slate-300"></div>
+
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 mt-20">
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+                <!-- About -->
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">
+                        Mohamed Abdelmajeed
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Full Stack Developer passionate about building modern web applications
+                        using .NET, Angular, and modern frontend technologies.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">
+                        Quick Links
+                    </h3>
+
+                    <ul class="space-y-3 text-slate-600 dark:text-slate-400">
+
+                        <li><a href="#home" class="hover:text-primary transition">Home</a></li>
+                        <li><a href="#about" class="hover:text-primary transition">About</a></li>
+                        <li><a href="#projects" class="hover:text-primary transition">Projects</a></li>
+                        <li><a href="#certificates" class="hover:text-primary transition">Certificates</a></li>
+                        <li><a href="#contact" class="hover:text-primary transition">Contact</a></li>
+
+                    </ul>
+                </div>
+
+                <!-- Social Links -->
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">
+                        Connect With Me
+                    </h3>
+
+                    <div class="flex flex-wrap gap-4">
+
+                        <!-- GitHub -->
+                        <a href="https://github.com/Mohamed-Abdulmajeed" target="_blank"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-black hover:text-white transition">
+                            <i class="fa-brands fa-github text-lg"></i>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/mohammed-abdelmajeed" target="_blank"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-blue-600 hover:text-white transition">
+                            <i class="fa-brands fa-linkedin-in text-lg"></i>
+                        </a>
+
+                        <!-- YouTube -->
+                        <a href="https://youtube.com/@mohamedabdulmajeed2777?si=Ei4BPbHL2eASvvEl" target="_blank"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-red-600 hover:text-white transition">
+                            <i class="fa-brands fa-youtube text-lg"></i>
+                        </a>
+
+                        <!-- Email -->
+                        <a href="mailto:m7abdelmajeed@gmail.com"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-primary hover:text-white transition">
+                            <i class="fa-solid fa-envelope text-lg"></i>
+                        </a>
+
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/201118726275" target="_blank"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-green-500 hover:text-white transition">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom -->
+            <div
+                class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-800 text-center text-slate-500 dark:text-slate-400 text-sm">
+
+                © 2026 Mohamed Abdelmajeed. All rights reserved.
+
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+        class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-[0_0_20px_rgba(0,102,255,0.4)] hover:bg-blue-700 hover:-translate-y-1 transition-all duration-300 opacity-0 pointer-events-none z-50">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

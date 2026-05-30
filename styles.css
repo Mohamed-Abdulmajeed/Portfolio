@@ -1,0 +1,98 @@
+:root {
+    /* Typography */
+    --font-heading-name: 'Poppins';
+    --font-body-name: 'Inter';
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --letter-spacing-heading: -0.02em;
+    --letter-spacing-body: 0px;
+
+    /* Spacing */
+    --space-base: 1rem;
+
+    /* Borders */
+    --radius-small: 12px;
+    --radius-large: 24px;
+    --border-width: 1px;
+
+    /* Shadows */
+    --shadow-color: 0 0 0;
+    --shadow-offset-x: 0px;
+    --shadow-offset-y: 8px;
+    --shadow-blur: 24px;
+    --shadow-spread: -4px;
+    --shadow-opacity: 0.1;
+    --shadow-custom: 0px 8px 24px -4px rgba(0, 0, 0, 0.08);
+    --shadow-custom-hover: 0px 20px 40px -8px rgba(0, 102, 255, 0.15);
+}
+
+.dark {
+    --shadow-custom: 0px 8px 24px -4px rgba(0, 0, 0, 0.5), inset 0px 1px 1px rgba(255, 255, 255, 0.05);
+    --shadow-custom-hover: 0px 20px 40px -8px rgba(0, 102, 255, 0.25), inset 0px 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Typing Animation */
+.typing-container {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #0066FF;
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: #0066FF;
+    }
+}
+
+/* Glassmorphism */
+.glass-panel {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+/* Scroll Progress */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0066FF, #00AEEF);
+    z-index: 100;
+    transition: width 0.1s ease;
+}
+
+/* Hide scrollbar for clean UI */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #334155;
+}
